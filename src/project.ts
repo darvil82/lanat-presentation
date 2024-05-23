@@ -6,7 +6,7 @@ import example from "./scenes/example?scene"
 import exampleLanatEnum from "./scenes/example-lanat-enum?scene"
 import exampleLanatTemplate from "./scenes/example-lanat-template?scene"
 import exampleLanatMain from "./scenes/example-lanat-main?scene"
-import conclusion from "./scenes/conclusion?scene"
+import errors from "./scenes/errors?scene"
 
 export default makeProject({
 	scenes: [
@@ -16,6 +16,6 @@ export default makeProject({
 		exampleLanatEnum,
 		exampleLanatTemplate,
 		exampleLanatMain,
-		conclusion,
+		errors,
 	],
 })

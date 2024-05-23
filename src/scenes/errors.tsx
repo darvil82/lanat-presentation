@@ -19,7 +19,9 @@ import {
 } from "@motion-canvas/core"
 import { TerminalResult } from "./todo"
 import { styles } from "../styles"
+
 import error1 from "../../images/error1.png"
+import error2 from "../../images/error1.png"
 
 function getRandomString(length: number) {
 	return Array.from({ length }, () =>
@@ -106,7 +108,7 @@ export default makeScene2D(function* (view) {
 		</Rect>
 	)
 
-	yield bg().width(3000, 0.5)
+	yield bg().width(2560, 0.5)
 	yield bg().radius(0, 0.5)
 	yield resultsRect().opacity(0, 0.25)
 	yield resultsRect().y(100, 0.25)
@@ -116,11 +118,12 @@ export default makeScene2D(function* (view) {
 
 	yield* crazyFor(25)
 
-	const imagesRect = createRef<Rect>()
+	yield command("program -a 60 -b 3 -op dvide", 0.25, easeOutCubic)
 
-	view.add(<Rect layout ref={imagesRect}></Rect>)
-
-	yield* command("program -a 60 -b 3 -op dvide", 0.25, easeOutCubic)
+	const img = createRef<Img>()
+	view.add(<Img ref={img} src={error1} opacity={0} width={1000} y={100} />)
+	yield img().y(0, 0.25)
+	yield* img().opacity(1, 0.25)
 
 	yield* beginSlide("move")
 })
