@@ -21,12 +21,6 @@ public class App extends CommandTemplate {
 
     @Argument.Define
     public Operation op;
-
-    @InitDef
-    public static void beforeInit(CommandBuildContext ctx) {
-        ctx.argWithType("op", new EnumArgumentType<>(Operation.ADD))
-            .onOk(value -> System.out.println("operation explicitly set to " + value));
-    }
 }
 */
 
@@ -119,31 +113,8 @@ public class Program { }`}
 	yield* beginSlide("highlight operation arg")
 
 	yield code().selection(DEFAULT, 0.25)
-	yield* code().code.insert(
-		[10, 0],
-		`\
+	yield* code().scale(1, 0.25)
 
-    @InitDef
-    public static void beforeInit(CommandBuildContext ctx) {
-        ctx.argWithType("op", new EnumArgumentType<>(Operation.ADD));
-    }
-`,
-		0.25
-	)
-
-	yield* beginSlide("initdef")
-
-	yield* code().selection(code().findAllRanges(/"?op"?/g), 0.25)
-	yield* beginSlide("highlight op")
-
-	yield* code().selection(
-		code().findAllRanges(/(new Enum.*(?=\);))|(Operation)/gi),
-		0.25
-	)
-	yield* beginSlide("highlight EnumArgumentType")
-
-	yield code().scale(1, 0.25)
-	yield* code().selection(DEFAULT, 0.25)
 	yield* beginSlide("scale down")
 
 	yield* all(

@@ -21,18 +21,7 @@ void main(String[] args) {
 }
 */
 
-export default makeScene2D(function* (view) {
-	const code = createRef<Code>()
-	const templateCode = createRef<Code>()
-	const templateCodeRect = createRef<Rect>()
-
-	view.add(
-		<>
-			<Code
-				ref={templateCode}
-				opacity={0}
-				y={100}
-				code={`\
+export const TEMPLATE_CODE = `\
 @Command.Define
 public class App extends CommandTemplate {
     @Argument.Define(required = true)
@@ -43,14 +32,16 @@ public class App extends CommandTemplate {
 
     @Argument.Define
     public Operation op;
+}`
 
-    @InitDef
-    public static void beforeInit(CommandBuildContext ctx) {
-        ctx.argWithType("op", new EnumArgumentType<>(Operation.ADD));
-    }
-}
-`}
-			/>
+export default makeScene2D(function* (view) {
+	const code = createRef<Code>()
+	const templateCode = createRef<Code>()
+	const templateCodeRect = createRef<Rect>()
+
+	view.add(
+		<>
+			<Code ref={templateCode} opacity={0} y={100} code={TEMPLATE_CODE} />
 
 			<Rect
 				ref={templateCodeRect}

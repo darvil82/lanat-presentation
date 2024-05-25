@@ -150,4 +150,12 @@ int res; switch (op) {
 	yield* enumCode().position([0, 0], 0.5)
 
 	yield* beginSlide("do merge")
+
+	yield enumCode().code.insert(
+		[1, 0],
+		"    @EnumArgumentType.Default\n",
+		0.25
+	)
+	yield* enumCode().selection(lines(1, 2), 0.25)
+	yield* beginSlide("add annotation")
 })
