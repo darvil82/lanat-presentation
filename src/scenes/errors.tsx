@@ -68,7 +68,7 @@ export default makeScene2D(function* (view) {
 	const command = createSignal("program -a 60 -b 3 -op SUBTRACT")
 	const bgRect = createRef<Rect>()
 
-	function* crazyFor(iterations: number) {
+	function* crazyFor(iterations: number = 20) {
 		yield* command(
 			`program -a ${getRandomString(3)} -b ${getRandomString(
 				3
@@ -127,7 +127,7 @@ export default makeScene2D(function* (view) {
 	yield* waitFor(0.15)
 	resultsRect().remove()
 
-	yield* crazyFor(25)
+	yield* crazyFor()
 
 	yield command("program -a 60 -b 3 -op dvide", 0.25, easeOutCubic)
 
@@ -140,7 +140,7 @@ export default makeScene2D(function* (view) {
 	yield* beginSlide("move and show error")
 
 	yield img().restore(0.25)
-	yield* crazyFor(25)
+	yield* crazyFor()
 	img().remove()
 
 	yield command("program -a 60 -b 3 -op", 0.25)
@@ -153,7 +153,7 @@ export default makeScene2D(function* (view) {
 	yield* beginSlide("error 2")
 
 	yield img().restore(0.25)
-	yield* crazyFor(25)
+	yield* crazyFor()
 	img().remove()
 
 	yield command("program -a one -b test", 0.25)
@@ -166,7 +166,7 @@ export default makeScene2D(function* (view) {
 	yield* beginSlide("error 3")
 
 	yield img().restore(0.25)
-	yield* crazyFor(25)
+	yield* crazyFor()
 	img().remove()
 
 	yield command("program -op 'hello -a5 -b2", 0.25)

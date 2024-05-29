@@ -1,5 +1,6 @@
 import { Code, Rect, Txt, lines, makeScene2D } from "@motion-canvas/2d"
 import {
+	DEFAULT,
 	Direction,
 	all,
 	beginSlide,
@@ -23,7 +24,7 @@ void main(String[] args) {
 
 export const TEMPLATE_CODE = `\
 @Command.Define
-public class App extends CommandTemplate {
+public class Program extends CommandTemplate {
     @Argument.Define(required = true)
     public double a;
 
@@ -88,7 +89,7 @@ void main(String[] args) {
 	yield templateCodeRect().y(400, 0.25)
 	yield chain(
 		waitFor(0.1),
-		all(templateCode().opacity(1, 0.25), templateCode().y(0, 0.25))
+		all(templateCode().opacity(1, 0.25), templateCode().y(-155, 0.25))
 	)
 	yield* code().y(400, 0.25)
 	yield* waitFor(0.15)
@@ -109,12 +110,12 @@ void main(String[] args) {
 
 	yield* code().code.insert([3, 22], "result.a", 0.25)
 	yield templateCode().selection(lines(2, 4), 0.25)
-	yield* templateCode().y(0, 0.5)
+	yield* templateCode().y(-155, 0.5)
 	yield* beginSlide("show result.a")
 
 	yield* code().code.insert([3, 30], ", result.b", 0.25)
 	yield templateCode().selection(lines(5, 7), 0.25)
-	yield* templateCode().y(-100, 0.5)
+	yield* templateCode().y(-250, 0.5)
 	yield* beginSlide("show result.b")
 
 	yield templateCodeRect().y(0, 0.5)
