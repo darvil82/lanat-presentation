@@ -14,5 +14,6 @@ export default makeScene2D(function* (view) {
 
 	view.add(<Txt {...styles.TXT} text="David Losantos González" y={450} />)
 
+	yield* slideTransition(Direction.Bottom, 0.5)
 	yield* beginSlide("intro")
 })

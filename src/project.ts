@@ -10,6 +10,8 @@ import errors from "./scenes/errors?scene"
 import help from "./scenes/help?scene"
 import types from "./scenes/types?scene"
 import counterType from "./scenes/counterType?scene"
+import end from "./scenes/end?scene"
+import infoEnd from "./scenes/info-end?scene"
 
 export default makeProject({
 	scenes: [
@@ -23,5 +25,7 @@ export default makeProject({
 		help,
 		types,
 		counterType,
+		end,
+		infoEnd,
 	],
 })

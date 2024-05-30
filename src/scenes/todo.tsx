@@ -4,8 +4,11 @@ import {
 	Line,
 	Node,
 	NodeProps,
+	PossibleCanvasStyle,
 	Rect,
+	RectProps,
 	Txt,
+	initial,
 	makeScene2D,
 	signal,
 } from "@motion-canvas/2d"
@@ -25,12 +28,12 @@ import { parser } from "@lezer/java"
 
 Code.defaultHighlighter = new LezerHighlighter(parser)
 
-export interface TerminalResultProps extends NodeProps {
+export interface TerminalResultProps extends RectProps {
 	command: SignalValue<string>
 	result?: SignalValue<string>
 }
 
-export class TerminalResult extends Node {
+export class TerminalResult extends Rect {
 	@signal()
 	public declare readonly command: SimpleSignal<string, this>
 
@@ -41,16 +44,17 @@ export class TerminalResult extends Node {
 	private readonly commandRect = createRef<Rect>()
 
 	public constructor(props: TerminalResultProps) {
-		super({ ...props })
+		super({
+			...props,
+			layout: true,
+			alignItems: "center",
+			radius: 20,
+			fill: props.fill ?? "#111",
+			padding: 30,
+		})
 
 		this.add(
-			<Rect
-				layout
-				alignItems={"center"}
-				radius={20}
-				fill={"#111"}
-				padding={30}
-			>
+			<>
 				<Rect
 					padding={20}
 					paddingLeft={30}
@@ -96,7 +100,7 @@ export class TerminalResult extends Node {
 						fontWeight={900}
 					/>
 				</Rect>
-			</Rect>
+			</>
 		)
 	}
 

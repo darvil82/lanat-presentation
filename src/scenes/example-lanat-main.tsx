@@ -15,10 +15,7 @@ import { styles } from "../styles"
 void main(String[] args) {
     var result = ArgumentParser.parseFromInto(App.class, args);
 
-    System.out.printf(
-        "%.2f %s %.2f = %.2f%n",
-        result.a, result.op, result.b, result.op.execute(result.a, result.b)
-    );
+    System.out.println(result.op.execute(result.a, result.b))
 }
 */
 

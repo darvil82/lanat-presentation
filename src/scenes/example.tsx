@@ -39,7 +39,7 @@ void main(String[] args) {
         }
     };
 
-    System.out.printf("%d %s %d = %d", a, op, b, res);
+    System.out.println(res);
 }
 */
 
@@ -176,7 +176,7 @@ void main(String[] args) {
 		[28, 0],
 		`\
 
-    System.out.printf("%d %s %d = %d", a, op, b, res);
+    System.out.println(res);
 `,
 		showNextDuration
 	)
