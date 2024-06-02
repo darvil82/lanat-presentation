@@ -99,19 +99,11 @@ void main(String[] args) {
 	yield* code().code.insert(
 		[6, 0],
 		`\
-            case "-a" -> a = Integer.parseInt(args[++i]);`,
+            case "-a" -> a = Integer.parseInt(args[++i]);
+            case "-b" -> b = Integer.parseInt(args[++i]);`,
 		showNextDuration
 	)
-	yield* beginSlide("show -a")
-
-	yield* code().code.insert(
-		[7, 0],
-		`\
-            case "-b" -> b = Integer.parseInt(args[++i]);
-`,
-		showNextDuration
-	)
-	yield* beginSlide("show -b")
+	yield* beginSlide("show -a -b")
 
 	yield* code().code.insert(
 		[8, 0],
